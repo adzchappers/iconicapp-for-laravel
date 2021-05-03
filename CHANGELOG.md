@@ -1,7 +1,7 @@
 # Changelog
 
-All notable changes to `:package_name` will be documented in this file.
+All notable changes to `iconicapp-for-laravel` will be documented in this file.
 
-## 1.0.0 - 202X-XX-XX
+## Version 1.0.0 (2021-05-03)
 
-- initial release
+- Initial Release

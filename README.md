@@ -1,62 +1,80 @@
-# :package_description
+# IconicApp for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/vendor_slug/package_slug.svg?style=flat-square)](https://packagist.org/packages/vendor_slug/package_slug)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/vendor_slug/package_slug/run-tests?label=tests)](https://github.com/vendor_slug/package_slug/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/vendor_slug/package_slug/Check%20&%20fix%20styling?label=code%20style)](https://github.com/vendor_slug/package_slug/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
-[![Total Downloads](https://img.shields.io/packagist/dt/vendor_slug/package_slug.svg?style=flat-square)](https://packagist.org/packages/vendor_slug/package_slug)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/adzchappers/iconicapp-for-laravel.svg?style=flat-square)](https://packagist.org/packages/adzchappers/iconicapp-for-laravel)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/adzchappers/iconicapp-for-laravel/run-tests?label=tests)](https://github.com/adzchappers/iconicapp-for-laravel/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/adzchappers/iconicapp-for-laravel/Check%20&%20fix%20styling?label=code%20style)](https://github.com/adzchappers/iconicapp-for-laravel/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amaster)
+[![Total Downloads](https://img.shields.io/packagist/dt/adzchappers/iconicapp-for-laravel.svg?style=flat-square)](https://packagist.org/packages/adzchappers/iconicapp-for-laravel)
 
----
-This repo can be used as to scaffold a Laravel package. Follow these steps to get started:
 
-1. Press the "Use template" button at the top of this repo to create a new repo with the contents of this skeleton
-2. Run "./configure-skeleton.sh" to run a script that will replace all placeholders throughout all the files
-3. Remove this block of text.
-4. Have fun creating your package.
-5. If you need help creating a package, consider picking up our <a href="https://laravelpackage.training">Laravel Package Training</a> video course.
----
+A Laravel package for easy use of the wonderful [iconic.app](https://iconic.app) icon set in blade, svg, or png.
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+## Requirements
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/:package_name.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/:package_name)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+- PHP 7.4 or higher
+- Laravel 7.0 or higher
 
 ## Installation
 
-You can install the package via composer:
+You can install the package via composer, this will give you access to the blade components:
 
 ```bash
-composer require vendor_slug/package_slug
+composer require adzchappers/iconicapp-for-laravel
 ```
 
-You can publish and run the migrations with:
+If you want to use the SVG or PNG files directly, you'll need to publis them directly.
 
+All Files
 ```bash
-php artisan vendor:publish --provider="VendorName\Skeleton\SkeletonServiceProvider" --tag="package_slug-migrations"
-php artisan migrate
+php artisan vendor:publish --provider="AdzChappers\IconicappForLaravel\ServiceProvider" --force
 ```
 
-You can publish the config file with:
+SVG Files
 ```bash
-php artisan vendor:publish --provider="VendorName\Skeleton\SkeletonServiceProvider" --tag="package_slug-config"
+php artisan vendor:publish --provider="AdzChappers\IconicappForLaravel\ServiceProvider" --tag=iconic-svg --force
 ```
 
-This is the contents of the published config file:
-
-```php
-return [
-];
+All PNG Files
+```bash
+php artisan vendor:publish --provider="AdzChappers\IconicappForLaravel\ServiceProvider" --tag=iconic-png --force
 ```
+
+Black PNG Files
+```bash
+php artisan vendor:publish --provider="AdzChappers\IconicappForLaravel\ServiceProvider" --tag=iconic-png-black --force
+```
+
+White PNG Files
+```bash
+php artisan vendor:publish --provider="AdzChappers\IconicappForLaravel\ServiceProvider" --tag=iconic-png-white --force
+```
+
+## Updating
+
+General steps for every update:
+
+- Run `php artisan view:clear`
+- If you published the raw icons run one of the above installations commands, eg `php artisan vendor:publish --provider="AdzChappers\IconicappForLaravel\ServiceProvider" --force`
 
 ## Usage
 
-```php
-$skeleton = new VendorName\Skeleton();
-echo $skeleton->echoPhrase('Hello, Spatie!');
+Iconic icons can be used with a self-closing Blade component, which will be compiled to an SVG:
+
+```blade
+<x-iconic-announcement />
+```
+
+You can also pass a class, style, or stroke color (any or all) into the component:
+
+```blade
+<x-iconic-announcement class="w-6 h-6" style="margin-bottom: 10px" stroke="#555"/>
+```
+
+The icons can also be used in their raw format (svg, or png)
+
+```blade
+<img src="{{ asset('vendor/iconic/svg/announcement.svg') }}" width="24" height="24"/>
+
+<img src="{{ asset('vendor/iconic/png/white/announcement.png') }}" width="24" height="24"/>
 ```
 
 ## Testing
@@ -79,7 +97,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [:author_name](https://github.com/:author_username)
+- [AdzChappers](https://github.com/adzchappers)
 - [All Contributors](../../contributors)
 
 ## License

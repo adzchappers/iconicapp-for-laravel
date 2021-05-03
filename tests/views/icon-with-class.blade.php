@@ -1,0 +1,1 @@
+<x-iconic-announcement class="testing-class" />

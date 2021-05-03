@@ -1,0 +1,1 @@
+<x-iconic-announcement stroke="#ffffff" />
