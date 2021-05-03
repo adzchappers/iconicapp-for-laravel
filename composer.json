@@ -1,5 +1,5 @@
 {
-    "name": "adz-chappers/iconicapp-for-laravel",
+    "name": "adzchappers/iconicapp-for-laravel",
     "description": "Laravel Blade files for the wonderful iconic.app icon set",
     "keywords": [
         "adzchappers",
@@ -10,7 +10,7 @@
         "Blade Icons",
         "Blade Iconic.app"
     ],
-    "homepage": "https://github.com/adz-chappers/iconicapp-for-laravel",
+    "homepage": "https://github.com/adzchappers/iconicapp-for-laravel",
     "license": "MIT",
     "authors": [
         {
